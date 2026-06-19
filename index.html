@@ -21,6 +21,30 @@
     <h1>Hello Google Analytics 4!</h1>
     <p>เว็บไซต์นี้สร้างขึ้นเพื่อฝึกฝนการติดแท็กและการวัดผลข้อมูล</p>
     <button id="btn-click-me">คลิกฉันหน่อย!</button>
+
+    <div class="concert-card">
+    <h3>Taylor Swift | The Eras Tour Bangkok</h3>
+    <p>ราคาเริ่มต้น: 3,500 บาท</p>
+    <button onclick="trackConcertClick('Taylor Swift Eras Tour', 'Pop', 3500)">ดูรายละเอียดบัตร</button>
+  </div>
+
+  <div class="concert-card">
+    <h3>Bruno Mars Live in Bangkok</h3>
+    <p>ราคาเริ่มต้น: 2,800 บาท</p>
+    <button onclick="trackConcertClick('Bruno Mars Live', 'R&B/Funk', 2800)">ดูรายละเอียดบัตร</button>
+  </div>
+
+  <script>
+  function trackConcertClick(concertName, musicGenre, startingPrice) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'select_concert_intent',
+      'concert_name': concertName,
+      'concert_genre': musicGenre,
+      'concert_start_price': startingPrice
+    });
+  }
+  </script>
   </main>
 </body>
 </html>
